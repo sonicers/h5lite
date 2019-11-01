@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+
+<head>
+    <meta name="viewport"
+          content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="robots" content="nofollow">
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="UTF-8">
+    <meta name="author" content="linkpro.tech">
+    <title>印象夏日艺术馆</title>
+    <link rel="stylesheet" type="text/css" href="public/comm.css">
+    <script src="//wximg.qq.com/wxp/libs/wxmoment/0.0.4/wxmoment.min.js"></script>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="//wx.vivo.com.cn/api/js/weixin.js?list=onMenuShareTimeline,onMenuShareQQ,onMenuShareAppMessage,onMenuShareWeibo"></script>
+
+    <!-- vivostat内置了腾讯统计 -->
+    <script src="//pingjs.qq.com/h5/stats.js?v2.0.4" name="MTAH5" sid="500689740" cid="500689741"></script>
+    <script src="//static.vivo.com.cn/h5/lib/vivostat/vivostat-1.1.0.js" name="vivoStat"></script>
+
+    <script>
+        var baseLink = "https://static.vivo.com.cn/h5/x27art/index.html"; //默认location.origin + location.pathname
+
+        var shareT = [
+            '约么？来看个今年夏天最色的艺术展……',
+            '在吗？我想约你一起看个艺术展，看完会很热的那种……',
+            '为什么这个色色的地方，让女神的心都融化了？',
+            '热热热热到女神都化了……'
+        ];
+        var shareA = [
+            '来探探究竟？',
+            '等不及了……',
+            '融化她的不仅有热情，还有……',
+            '不敢相信，她竟然变成了这个样子！'
+        ];
+
+        var randomShare = Math.floor(Math.random() * 4);
+
+        //自定义微信分享
+        window.shareData = {
+            url: window.vivoStat.getShareLink(baseLink),    //该方法使链接自动带上当前的ADTAG参数
+            picUrl: "https://static.vivo.com.cn/h5/x27art/public/weixin.jpg",
+            title: shareT[randomShare],
+            desc: shareA[randomShare],
+            timelineTitle: shareT[randomShare],
+
+            callback: function (type) {
+                if (typeof MtaH5 != "undefined") {
+                    MtaH5.clickStat(type);
+                }
+            }
+        };
+
+        function refreshShareData() {
+
+            wx.ready(function () {
+
+                wx.onMenuShareTimeline({
+                    title: window.shareData.timelineTitle,
+                    link: window.shareData.url,
+                    imgUrl: window.shareData.picUrl,
+                    success: function () {
+                        window.shareData.callback("sharetimeline");
+                    },
+                    cancel: function () {
+                    }
+                });
+
+                wx.onMenuShareAppMessage({
+                    title: window.shareData.title,
+                    desc: window.shareData.desc,
+                    link: window.shareData.url,
+                    imgUrl: window.shareData.picUrl,
+                    success: function () {
+                        window.shareData.callback("shareappmessage");
+                    },
+                    cancel: function () {
+                    }
+                });
+
+                wx.onMenuShareQQ({
+                    title: window.shareData.title,
+                    desc: window.shareData.desc,
+                    link: window.shareData.url,
+                    imgUrl: window.shareData.picUrl,
+                    success: function () {
+                        window.shareData.callback("shareqq");
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+                wx.onMenuShareWeibo({
+                    title: window.shareData.title,
+                    desc: window.shareData.desc,
+                    link: window.shareData.url,
+                    imgUrl: window.shareData.picUrl,
+                    success: function () {
+                        window.shareData.callback("shareweibo");
+                    },
+                    cancel: function () {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
+            })
+        }
+
+        refreshShareData();
+    </script>
+    <script src="//www.linkpro.tech/tools/js/vconsole.min.js"></script>
+    <script src="public/iphone-inline-video.min.js"></script>
+    <script src="public/comm.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+    <section id="load">
+        <div class="bg zoom"></div>
+        <div class="icon"></div>
+        <div class="txt"></div>
+        <div class="line">
+                <span>
+                    <i style="width: 0%"></i>
+                </span>
+        </div>
+        <button></button>
+    </section>
+    <section id="video">
+        <video preload="auto" x5-video-player-type="h5" x5-video-player-fullscreen="true"
+               x5-video-orientation="portraint" x-webkit-airplay="true" webkit-playsinline="true" playsinline="true"
+               width="480" height="852" id="video-content" poster="./public/video.jpg" src="./public/v9.mp4"
+               class="zoom"></video>
+        <!-- <ul class="btn zoom">
+            <li class="li-1">
+                <span></span>
+            </li>
+            <li class="li-2">
+                <span></span>
+            </li>
+            <li class="li-3">
+                <span></span>
+            </li>
+            <li class="li-4">
+                <span></span>
+            </li>
+        </ul>
+        <ul class="title">
+            <li class="li-2"></li>
+            <li class="li-3"></li>
+            <li class="li-4"></li>
+        </ul> -->
+        <div class="skip">
+            <button id="btn-skip"></button>
+        </div>
+    </section>
+    <section id="end">
+        <div class="bg zoom">
+            <div class="slogan"></div>
+        </div>
+        <!-- <div class="logo"></div> -->
+        <button id="btn-1"></button>
+        <button id="btn-2"></button>
+        <p></p>
+    </section>
+</div>
+<div id="linkpro">
+    <div class="ifpc">
+        <div class="ifpc-wrapper">
+            <div class="ifpc-qr"></div>
+            <span>扫一扫</span>
+            <p>请使用手机扫描二维码访问</p>
+        </div>
+    </div>
+    <div class="ifhs">
+        <span></span>
+        <p>为了更好的体验，请使用竖屏浏览</p>
+    </div>
+</div>
+<audio loop="loop" id="audio-bgm" src="public/bgm.mp3"></audio>
+</body>
+
+</html>
