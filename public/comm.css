@@ -75,9 +75,9 @@ section.show {
 
 #load .icon {
 	position: absolute;
-	top: 50%;
-	left: 2.25rem;
-	width: 3rem;
+    top: 55%;
+    left: 3.11rem;
+    width: 1.28rem;
 	height: 2.4rem;
 	margin-top: -3.2rem;
 	background: url(load-icon.png) 0 0 no-repeat;
