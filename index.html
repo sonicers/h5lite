@@ -9,14 +9,15 @@
     <meta name="format-detection" content="telephone=no">
     <meta charset="UTF-8">
     <meta name="author" content="linkpro.tech">
-    <title>印象夏日艺术馆</title>
+    <title>思客人体工学椅</title>
     <link rel="stylesheet" type="text/css" href="public/comm.css">
     <script src="//wximg.qq.com/wxp/libs/wxmoment/0.0.4/wxmoment.min.js"></script>
     <script src="//res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
     <script src="./public/vconsole.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
-        var baseLink = "https://static.vivo.com.cn/h5/x27art/index.html"; //默认location.origin + location.pathname
+        var baseLink = "https://uss.sonicers.com/h5lite/index.html"; //默认location.origin + location.pathname
 
         var shareT = [
             '约么？来看个今年夏天最色的艺术展……',
@@ -49,6 +50,35 @@
         };
 
         function refreshShareData() {
+            axios.get('https://api.sonicers.com/release/get_signature', {
+                params: {
+                    reqUrl: window.location.href
+                }
+            }).then((res) => {
+                console.log("res=========", res)
+                let data = res.data
+                console.log("data==========", data)
+                console.log("data.appId==========", data.appId)
+                console.log("data.timestamp==========", data.timestamp)
+                console.log("data.nonceStr==========", data.nonceStr)
+                console.log("data.signature==========", data.signature)
+                wx.config({
+                    debug: false, // 开启调试模式
+                    appId: data.appId, // 必填，公众号的唯一标识
+                    timestamp: data.timestamp, // 必填，生成签名的时间戳
+                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                    signature: data.signature, // 必填，签名，见附录1
+                    jsApiList: [
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage',
+                        'onMenuShareQQ',
+                        'onMenuShareWeibo'
+                    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                })
+            }).catch((error) => {
+                console.log(error)
+            });
+            console.log("wx====" + wx)
             wx.ready(function () {
 
                 wx.onMenuShareTimeline({
