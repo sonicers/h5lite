@@ -36,8 +36,8 @@ loader.addCompletionListener(function() {
         $('#load .line').addClass('hide');
         $('#load button').addClass('show');
     }, 500);
-    vivoStat.stat('load_end');
-    vivoStat.load.end();
+    // vivoStat.stat('load_end');
+    // vivoStat.load.end();
 });
 
 var ua = navigator.userAgent.toLowerCase();
@@ -83,7 +83,7 @@ $(function() {
     // }
 
     loader.start();
-    vivoStat.stat('load_start');
+    // vivoStat.stat('load_start');
 
     function isIphoneX() {
         return /iphone/gi.test(navigator.userAgent) && (screen.height == 812 && screen.width == 375);
@@ -211,7 +211,7 @@ $(function() {
             $('#btn-skip').addClass('show');
         }, 1000);
         $('#audio-bgm')[0].load();
-        vivoStat.stat('btn_play');
+        // vivoStat.stat('btn_play');
     });
 
     $('#btn-skip').bind('touchend', function(event) {
@@ -227,99 +227,8 @@ $(function() {
             }, 1000);
         }
         $('#audio-bgm')[0].play();
-        vivoStat.stat('btn_skip');
+        // vivoStat.stat('btn_skip');
     });
-
-    // var videoPause1 = true,
-    //     videoPause2 = true,
-    //     videoPause3 = true,
-    //     videoPause4 = true;
-
-    // var timeDisplay;
-
-    // video.addEventListener('timeupdate', function() {
-    //     timeDisplay = video.currentTime;
-    //     console.log(timeDisplay);
-    //     if (timeDisplay >= 15.9 && videoPause1 ) {
-    //         video.currentTime = 15.4;
-    //         // video.pause();
-    //         $('#video ul li.li-1').addClass('show');
-    //         return false;
-    //     }
-    //     if (timeDisplay >= 24.1 && videoPause2 ) {
-    //         video.currentTime = 24;
-    //         // video.pause();
-    //         $('#video ul li.li-2').addClass('show');
-    //         return false;
-    //     }
-    //     if (timeDisplay >= 37.9 && videoPause3 ) {
-    //         // video.currentTime = timeDisplay;
-    //         video.pause();
-    //         $('#video ul li.li-3').addClass('show');
-    //         return false;
-    //     }
-    //     if (timeDisplay >= 46.7 && videoPause4 ) {
-    //         // video.currentTime = timeDisplay;
-    //         video.pause();
-    //         $('#video ul li.li-4').addClass('show');
-    //     }
-    // }, false);
-
-    // $('#video ul.btn li.li-1').one('touchend', function(event) {
-    //     event.preventDefault();
-    //     videoPause1 = false;
-    //     // if ( !isAndroid ) {
-    //     //     video.currentTime = timeDisplay;
-    //     // }
-    //     // video.play();
-    //     $('#video ul li.li-1').addClass('hide');
-    //     setTimeout(function(){
-    //         $('#video ul li.li-1').removeClass('show hide');
-    //     },1000);
-    // vivoStat.stat('btn_video_1');
-    // });
-
-    // $('#video ul.btn li.li-2').one('touchend', function(event) {
-    //     event.preventDefault();
-    //     videoPause2 = false;
-    //     // if ( !isAndroid ) {
-    //     //     video.currentTime = timeDisplay;
-    //     // }
-    //     // video.play();
-    //     $('#video ul li.li-2').addClass('hide');
-    //     setTimeout(function(){
-    //         $('#video ul li.li-2').removeClass('show hide');
-    //     },1000);
-    // vivoStat.stat('btn_video_2');
-    // });
-
-    // $('#video ul.btn li.li-3').one('touchend', function(event) {
-    //     event.preventDefault();
-    //     videoPause3 = false;
-    //     if ( !isAndroid ) {
-    //         video.currentTime = timeDisplay;
-    //     }
-    //     video.play();
-    //     $('#video ul li.li-3').addClass('hide');
-    //     setTimeout(function(){
-    //         $('#video ul li.li-3').removeClass('show hide');
-    //     },1000);
-    // vivoStat.stat('btn_video_3');
-    // });
-
-    // $('#video ul.btn li.li-4').one('touchend', function(event) {
-    //     event.preventDefault();
-    //     videoPause4 = false;
-    //     if ( !isAndroid ) {
-    //         video.currentTime = timeDisplay;
-    //     }
-    //     video.play();
-    //     $('#video ul li.li-4').addClass('hide');
-    //     setTimeout(function(){
-    //         $('#video ul li.li-4').removeClass('show hide');
-    //     },1000);
-    // vivoStat.stat('btn_video_4');
-    // });
 
     video.addEventListener('ended', function() {
         $('#end').addClass('show');
@@ -332,7 +241,7 @@ $(function() {
             }, 1000);
         }
         $('#audio-bgm')[0].play();
-        vivoStat.stat('video_end');
+        // vivoStat.stat('video_end');
     });
 
     video.addEventListener('pause', function() {
@@ -356,9 +265,9 @@ $(function() {
         setTimeout(function() {
             window.open('https://shop.vivo.com.cn/wap/product/10000534?colorSkuid=101610&cid=h-1-vivo_shequ-x27');
         }, 200);
-        vivoStat.stat('btn_shop', {
-            'channel': adtag
-        });
+        // vivoStat.stat('btn_shop', {
+        //     'channel': adtag
+        // });
     });
 
     $('#end #btn-2').bind('touchend', function(event) {
@@ -366,9 +275,9 @@ $(function() {
         setTimeout(function() {
             window.open('https://bbs.vivo.com.cn/forum.php?mod=viewthread&tid=5529143');
         }, 200);
-        vivoStat.stat('btn_act', {
-            'channel': adtag
-        });
+        // vivoStat.stat('btn_act', {
+        //     'channel': adtag
+        // });
     });
 
     if (isWeiXin) {

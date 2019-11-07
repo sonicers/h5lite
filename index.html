@@ -12,12 +12,8 @@
     <title>印象夏日艺术馆</title>
     <link rel="stylesheet" type="text/css" href="public/comm.css">
     <script src="//wximg.qq.com/wxp/libs/wxmoment/0.0.4/wxmoment.min.js"></script>
-    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script src="//wx.vivo.com.cn/api/js/weixin.js?list=onMenuShareTimeline,onMenuShareQQ,onMenuShareAppMessage,onMenuShareWeibo"></script>
-
-    <!-- vivostat内置了腾讯统计 -->
-    <script src="//pingjs.qq.com/h5/stats.js?v2.0.4" name="MTAH5" sid="500689740" cid="500689741"></script>
-    <script src="//static.vivo.com.cn/h5/lib/vivostat/vivostat-1.1.0.js" name="vivoStat"></script>
+    <script src="//res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script src="./public/vconsole.min.js"></script>
 
     <script>
         var baseLink = "https://static.vivo.com.cn/h5/x27art/index.html"; //默认location.origin + location.pathname
@@ -39,7 +35,7 @@
 
         //自定义微信分享
         window.shareData = {
-            url: window.vivoStat.getShareLink(baseLink),    //该方法使链接自动带上当前的ADTAG参数
+            url: baseLink,    //该方法使链接自动带上当前的ADTAG参数
             picUrl: "https://static.vivo.com.cn/h5/x27art/public/weixin.jpg",
             title: shareT[randomShare],
             desc: shareA[randomShare],
@@ -53,7 +49,6 @@
         };
 
         function refreshShareData() {
-
             wx.ready(function () {
 
                 wx.onMenuShareTimeline({
@@ -104,6 +99,7 @@
                     }
                 });
             })
+
         }
 
         refreshShareData();
@@ -131,25 +127,6 @@
                x5-video-orientation="portraint" x-webkit-airplay="true" webkit-playsinline="true" playsinline="true"
                width="480" height="852" id="video-content" poster="./public/video.jpg" src="./public/v9.mp4"
                class="zoom"></video>
-        <!-- <ul class="btn zoom">
-            <li class="li-1">
-                <span></span>
-            </li>
-            <li class="li-2">
-                <span></span>
-            </li>
-            <li class="li-3">
-                <span></span>
-            </li>
-            <li class="li-4">
-                <span></span>
-            </li>
-        </ul>
-        <ul class="title">
-            <li class="li-2"></li>
-            <li class="li-3"></li>
-            <li class="li-4"></li>
-        </ul> -->
         <div class="skip">
             <button id="btn-skip"></button>
         </div>
