@@ -263,7 +263,7 @@ $(function() {
     $('#end #btn-1').bind('touchend', function(event) {
         event.preventDefault();
         setTimeout(function() {
-            window.open('https://shop.vivo.com.cn/wap/product/10000534?colorSkuid=101610&cid=h-1-vivo_shequ-x27');
+            // window.open('https://shop.vivo.com.cn/wap/product/10000534?colorSkuid=101610&cid=h-1-vivo_shequ-x27');
         }, 200);
         // vivoStat.stat('btn_shop', {
         //     'channel': adtag
@@ -273,7 +273,7 @@ $(function() {
     $('#end #btn-2').bind('touchend', function(event) {
         event.preventDefault();
         setTimeout(function() {
-            window.open('https://bbs.vivo.com.cn/forum.php?mod=viewthread&tid=5529143');
+            // window.open('https://bbs.vivo.com.cn/forum.php?mod=viewthread&tid=5529143');
         }, 200);
         // vivoStat.stat('btn_act', {
         //     'channel': adtag
