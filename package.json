@@ -1,0 +1,14 @@
+{
+  "name": "h5lite",
+  "version": "1.0.0",
+  "main": "deploy.js",
+  "repository": "git@github.com:sonicers/h5lite.git",
+  "author": "iponkan <iponkan@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "node deploy.js"
+  },
+  "dependencies": {
+    "anve-upload-upyun": "^1.0.8"
+  }
+}
